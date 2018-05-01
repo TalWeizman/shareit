@@ -1,0 +1,211 @@
+<app-post-link *ngIf="post"></app-post-link>
+
+<div class="cintainer-fluid">
+<div class="page-container">
+    
+        <div class="navg"> 
+            <div class="share-btn"routerLink="/" >
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </div>
+    
+            <div class="user-btn" (click)="user_profile()">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    
+        
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="logo-container">
+                            <img style="width:150px" src="assets/shareitlogo.png">
+                    </div>       
+            </div>    
+     
+        </div>
+</div>
+        <div class="container">
+        
+            <div class="row">
+                
+                
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 info">
+                    <h1>({{result.release_date.slice(0,4) }}) {{result.title || result.original_title}}</h1>
+                    
+                    <p id="infortl">{{result.overview}}</p>
+
+                    <p> <span class="gen" *ngFor="let g of result.genres">{{g.name}}</span>  </p>
+                
+                    <div class="add-button" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-plus" aria-hidden="true"></i></div>
+                 <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" >
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#66CC75;color:white">
+          <h5 class="modal-title" id="exampleModalLabel" >הוסף סרט</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>
+          הוספת לינק עבור הסרט <b>{{result.title}} </b> <a href="#">שנה</a>
+            </p>
+            <p>
+                    מועלה ע"י  <b>{{"אורח" || result.title}} </b> <a href="#">התחבר</a>
+            </p>
+
+            <label for="basic-url">קישור*</label>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3"><i class="fa fa-link" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" id="basic-url" [(ngModel)]="movie_link.url" aria-describedby="basic-addon3">
+            </div>
+
+            <label for="basic-url"></label>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">איכות</span>
+              <select class="form-control" [(ngModel)]="movie_link.quality" >
+
+                    <option value="לא ידוע">לא ידוע</option>
+
+                    <option value="מצויינת">מצויינת</option>
+                    <option value="טובה מאוד">טובה מאוד</option>
+                    <option value="טובה">טובה</option>
+                    <option value="סבירה">סבירה</option>
+                    <option value="נמוכה">נמוכה</option>
+                    <option value="נמוכה מאוד">נמוכה מאוד</option>
+
+                    <option value="HD">HD</option>
+                    <option value="HD 720">HD 720</option>
+                    <option value="HD 1080">HD 1080</option>
+                    <option value="4k">4k</option>
+
+                    <option value="3D">3D</option>
+
+                    <option value="CAM">CAM</option>
+                    <option value="CAMRip">CAMRip</option>
+                    <option value="CAM">CAM</option>
+                    <option value="TS">TS</option>
+                    <option value="HDTS">HDTS</option>
+                    <option value="PDVD">PDVD</option>
+                    <option value="WORKPRINT">WORKPRINT</option>
+                    <option value="TC">TC</option>
+                    <option value="HDTC">HDTC</option>
+                    <option value="PPV">PPV</option>
+                    <option value="PPVRip">PPVRip</option>
+                    <option value="DVDSCR">DVDSCR</option>
+                    <option value="DVDRip">DVDRip</option>
+                    <option value="HDTV">HDTV</option>
+                    <option value="PDTV">PDTV</option>
+                    <option value="TVRip">TVRip</option>
+                    <option value="HDTVRip">HDTVRip</option>
+                    <option value="WEB-DL">WEB-DL</option>
+                    <option value="HDRip">HDRip</option>
+                    <option value="WEBRip">WEBRip</option>
+                    <option value="BDRip">BDRip</option>
+                    <option value="BRRip">BRRip</option>
+                    <option value="BluRay">BluRay</option>
+                  </select>
+            </div>
+
+            <label for="basic-url"></label>
+            <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="checkbox" [(ngModel)]="movie_link.heb_sub" aria-label="Checkbox for following text input">
+                    </span>
+                    <span class="input-group-addon">תרגום מובנה</span>
+                
+                  </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"style=" cursor: pointer" data-dismiss="modal" #closeBtn>יציאה</button>
+          <button type="button"  (click)="save_share()" style="background-color:#66CC75; cursor: pointer;border-color:#66CC75" class="btn btn-primary">שיטוף קישור</button>
+        </div>
+      </div>
+    </div>
+  </div>
+                <div class="links-hedder">
+                    <h2><i class="fa fa-share-alt" aria-hidden="true"></i></h2>
+                    
+                    <div class="row" style="text-align:center">
+                        
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            סטאטוס
+                        </div>
+
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            איכות
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            תרגום מובנה
+                        </div>
+                        
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            שרת      
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                             מעלה               
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="hvr-grow" *ngFor="let l of links | async" [hidden]="!l.is_active" (click)="open_url(l.url)">
+                    
+                    <div class="row link">
+                            
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                
+                                <div class="row">
+                                                                        
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="color:red">                                    
+                                        {{l.down}}<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                    </div>
+    
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="color:green">   
+                                        {{l.up}} <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </div>                                    
+                                
+                                </div>
+
+                            </div>
+
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            {{l.quality}}        
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                              {{l.heb_sub ? "יש" : "אין"}}    
+                        </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    {{l.provider}}  
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    {{l.uname}}                     
+                            </div>
+                            
+                    </div>
+            
+                    
+                </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 image" >
+                <div class="effect1">
+                    <img src="https://image.tmdb.org/t/p/w500{{result.poster_path}}" class="img-fluid" alt="Responsive image">
+                </div>
+                </div>
+                
+
+                
+            </div>
+        
+        </div>
+</div>
+
+
+    

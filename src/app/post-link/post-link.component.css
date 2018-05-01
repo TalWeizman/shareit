@@ -1,0 +1,22 @@
+.frame{
+    background-color: white;
+    border: 5px solid black;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    z-index: 31;
+    position: absolute;
+    
+}
+
+.container-fluid{
+    position: absolute !important;
+    padding : 10%;
+    background-color: grey;
+   z-index: 30;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    padding: 50px
+
+}

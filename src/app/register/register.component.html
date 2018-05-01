@@ -1,0 +1,17 @@
+<form style="direction: rtl">
+    <div class="form-group">
+        <label for="exampleInputPassword1"  style="color: #66CC75;font-weight: bold">שם משתמש</label>
+        <input type="text" class="form-control" required id="exampleInputPassword1" placeholder="כינוי">
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1"  style="color: #66CC75;font-weight: bold">אימייל</label>
+      <input type="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="email" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" placeholder="הקש אימייל">
+      <small id="emailHelp" class="form-text text-muted">לעולם לא נשתף את הדוא"ל שלך עם אף אחד אחר.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1"  style="color: #66CC75;font-weight: bold">סיסמה</label>
+        <input type="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" class="form-control" id="exampleInputPassword1" required placeholder="סיסמה">
+      </div>
+    <button (click)="register()" style="background-color:#66CC75;border-color:#66CC75" class="btn btn-primary">הרשמה</button>
+  </form>

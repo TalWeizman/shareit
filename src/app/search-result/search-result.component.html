@@ -1,0 +1,7 @@
+<br>
+<div class="search-result-container">
+    
+    <app-share-tile *ngFor="let x of data;let i = index" routerLink="/{{x.media_type}}/{{x.id}}"  [hidden]="9 < i"  [data]="x" ></app-share-tile>
+   
+</div>
+<br> 

@@ -1,0 +1,104 @@
+<div class="page-container">
+    
+        <div class="navg"> 
+            <div class="share-btn" (click)="share_link()">
+                    <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+            </div>
+    
+            <div class="user-btn"  data-toggle="modal" data-target="#exampleModal">
+                <span class="xxx">שלום אורח</span> <i class="fa fa-user-circle" aria-hidden="true"></i>
+                
+            </div>
+        </div>
+        
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" *ngIf="form_toggle" id="exampleModalLabel" style="color: #66CC75;font-weight: bold">התחברות</h5>
+              <h5 class="modal-title" *ngIf="!form_toggle" id="exampleModalLabel" style="color: #66CC75;font-weight: bold">הרשמה</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="cursor: pointer">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <app-login *ngIf="form_toggle"></app-login>
+              <app-register *ngIf="!form_toggle"></app-register>
+              <div class="form-register" >
+                <h5  *ngIf="!form_toggle" (click)="form_toggle=!form_toggle">כבר רשום? --> התחברות</h5>
+                <h5  *ngIf="form_toggle" (click)="form_toggle=!form_toggle">לא רשום עדיין? --> הרשמה</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    
+    
+        <div class="logo-container">
+            <img src="assets/shareitlogo.png">
+        </div>
+    
+    
+        <div class="form-container">
+    
+            <input type="search" placeholder="Search" (keyup)="search()" [(ngModel)]="search_input" (focus)="scrole_to_search()">
+    
+        </div>
+
+    
+        <div class="container-fluid">
+        
+            <div class="search-result row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <app-search-result  [data]="result" *ngIf="search_input"></app-search-result>
+                    </div>
+                
+            </div>
+
+            <div class="links row">
+                    <div class="tag">שיתופים אחרונים</div>
+                    <div class="tag">עכשיו בקולנוע</div>
+                    <div class="tag">ערוצים פופולאריים</div>
+                    <div class="tag">סדרות פופלאריות</div>
+                    <div class="tag">סרטים פופולאריים</div>
+                    <div class="tag">הרפתקאות</div>
+                    <div class="tag">מתח</div>
+                    <div class="tag">אנימציה</div>
+                    <div class="tag">מדע בדיוני</div>
+                    <div class="tag">פעולה</div>
+                    <div class="tag">קומדיה</div>
+            </div>
+       
+            <div class="info-container row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p>ברוכים הבאים לשאר איט כאן תוכלו למצוא ולשטף את כל הסרטים הסדרות והערוצים האהובים עליכם</p>
+                    </div>
+                
+            </div>
+    
+        
+        </div>
+    
+        <div class="new-shares">
+            <div class="new-shares-title">שיתופים אחרונים</div>
+            <div class="new-shares">
+                
+            </div>
+    
+        </div>
+
+        <div class="new-shares">
+                <div class="new-shares-title">שיתופים פופולריים</div>
+                <div class="new-shares">
+                    
+                </div>
+        
+        </div>
+    
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    
+    

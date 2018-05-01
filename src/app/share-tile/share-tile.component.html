@@ -1,0 +1,10 @@
+<div class="tile-container" [hidden]="!data.poster_path" [style.backgroundImage]="'url(https://image.tmdb.org/t/p/w300' + (data.poster_path) +')'">
+    <div class="share-count">
+        <span id="share-text">{{data.title || data.name}}</span>
+        <p id="info">{{data.overview}}</p>
+    </div>
+    
+    <div class="badge" >
+        <p>{{links_count}}</p>
+    </div>
+</div>
